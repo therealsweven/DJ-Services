@@ -36,4 +36,13 @@ router.get("/contact", (req, res) => {
   }
 });
 
+// contact
+router.get("/reviews", (req, res) => {
+  try {
+    res.status(200).render("reviews");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

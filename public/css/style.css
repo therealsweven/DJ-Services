@@ -1,0 +1,88 @@
+:root {
+  --light: #fbf8f1;
+  --light2: #f7ecde;
+  --gold: #bdb21c;
+  --accent: #54bab9;
+}
+
+.navbar {
+  background-color: var(--accent);
+  border-radius: 0px;
+  text-align: center;
+}
+.nav-link,
+.nav-item {
+  color: #fbf8f1;
+  font-size: x-large;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus,
+.nav-link:hover,
+.nav-link:focus {
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus,
+.nav-link:hover,
+.nav-link:focus {
+  transform: scale(1.2);
+  /* color: #54bab9; */
+  color: white;
+  text-decoration: none;
+  text-shadow: rgb(246, 255, 125) 2px 2px 10px;
+}
+
+body {
+  background: var(--light);
+  font-family: "Philosopher", sans-serif;
+  margin-top: 0px;
+}
+
+header {
+  margin-bottom: 0px;
+}
+
+main {
+  margin-top: 0px;
+}
+footer {
+  background: var(--accent);
+  color: #fbf8f1;
+}
+
+#headerLogo {
+  text-align: center;
+  transition: all 0.7s ease;
+  width: 15%;
+  margin-left: 1%;
+  padding: 0%;
+}
+
+#imageContainer {
+  width: 100%;
+  margin-top: 0px;
+  color: var(--light);
+  font-size: x-large;
+  justify-content: center;
+  text-align: center;
+  text-shadow: black 2px 2px 10px;
+}
+
+.carouselImage {
+  width: 100%;
+  margin: 0px;
+  opacity: 0.9;
+}
+
+.centered {
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
