@@ -3,7 +3,9 @@
   <div class="row">
     <div class="mx-auto col-10 col-md-8 col-lg-6">
       <h2>Contact Us</h2>
-      <form>
+      <h4>Please send us a message below if you are interested in booking a DJ
+        through us.</h4>
+      <form id="contactForm">
         {{! NAME }}
         <div class="mb-3">
           <label for="inputName" class="form-label">Name</label>
@@ -29,7 +31,7 @@
           <input
             type="tel"
             class="form-control"
-            id="inputEmail"
+            id="inputPhone"
             aria-describedby="phoneHelp"
           />
           <div id="emailHelp" class="form-text">(Optional)</div>
@@ -80,3 +82,4 @@
     </div>
   </div>
 </main>
+<script src="/js/contact.js"></script>
