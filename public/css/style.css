@@ -1,6 +1,7 @@
 :root {
   --light: #fbf8f1;
   --light2: #f7ecde;
+  --dark: #e9dac1;
   --gold: #bdb21c;
   --accent: #54bab9;
 }
@@ -39,7 +40,7 @@ a:focus,
 }
 
 body {
-  background: var(--light);
+  background: var(--light2);
   font-family: "Philosopher", sans-serif;
   margin-top: 0px;
 }
@@ -129,4 +130,50 @@ footer {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+.close2 {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* SERVICES PAGE*/
+.servicesMain {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.servicesDescription {
+  width: 70%;
+  text-align: center;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--dark);
+  border-color: var(--accent);
+  border-radius: 2%;
+  border-width: 2%;
+}
+
+/* The Modal (background) */
+.inquiryModal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
 }

@@ -29,6 +29,9 @@ Inquiry.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    package: {
+      type: DataTypes.STRING,
+    },
     commMethod: {
       type: DataTypes.STRING,
       allowNull: false,

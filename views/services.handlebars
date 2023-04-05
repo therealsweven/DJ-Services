@@ -1,1 +1,198 @@
-<h2>Services</h2>
+<main class="servicesMain">
+  <div class="servicesDescription">
+    <h1>Services</h1>
+    <h4>Our DJs are trained to provide you with the most magical vibes for any
+      event you may need us for. Whether your looking for an emcee/DJ for your
+      wedding reception, a school dance, a company party, a birthday party, a
+      kids party, you name it, we've gotcha covered! Please see below for our
+      standard packages, and don't hesitate to contact us with any questions you
+      may have, i.e. you need something not listed in our standard packages.
+    </h4>
+  </div>
+  <div class="servicesContainer col-10 text-center">
+    <h2>DJ Packages</h2>
+    <div class="d-flex flex-row justify-content-around">
+      <div class="card p-3 m-2" style="width: 40rem;">
+        <img
+          class="card-img-top"
+          src="/images/wedding-ceremony.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title" style="bold">Wedding Ceremony Package</h5>
+          <p>Price: $399</p>
+          <p class="card-text">Two small PA speakers and a wireless lapel mic
+            for the minister. Custom selection of pre-ceremony playlist and
+            ceremony walkdown songs.
+          </p>
+          <a class="btn btn-primary services-inquire">Inquire</a>
+        </div>
+      </div>
+      <div class="card p-3 m-2" style="width: 40rem;">
+        <img
+          class="card-img-top"
+          src="/images/wedding-reception-card.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Wedding Rececption Package</h5>
+          <p>Price: $799</p>
+          <p class="card-text">Two large PA speakers, basic disco lights, strobe
+            lights, and lasers for dance floor upon request. Package includes up
+            to 5 hours of reception music, or more at an additional hourly cost,
+            AND a DJ/emcee to guide everyone through the event. Also includes a
+            consultation to review the soundtrack for your special day.
+          </p>
+          <a class="btn btn-primary services-inquire">Inquire</a>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex flex-row justify-content-around">
+      <div class="card p-3 m-2" style="width: 40rem;">
+        <img
+          class="card-img-top"
+          src="/images/wedding-bundle-card.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">Wedding Bundle Package</h5>
+          <p>Price: $999</p>
+          <p class="card-text">Two small PA speakers and a wireless lapel mic
+            for the minister. Custom selection of pre-ceremony playlist and
+            ceremony walkdown songs. Two large PA speakers, basic disco lights,
+            strobe lights, and lasers for dance floor upon request. Package
+            includes up to 5 hours of reception music, or more at an additional
+            hourly cost, AND a DJ/emcee to guide everyone through the event.
+            Also includes a consultation to review the soundtrack for your
+            special day.
+          </p>
+          <a class="btn btn-primary services-inquire">Inquire</a>
+        </div>
+      </div>
+      <div class="card p-3 m-2" style="width: 40rem;">
+        <img
+          class="card-img-top"
+          src="/images/school-dance-card.jpg"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <h5 class="card-title">School/Corporate Events</h5>
+          <p>Price: $399</p>
+          <p class="card-text">Up to 3 hours of music for a school or corporate
+            event. Additional time may be added for $100/hr. Two large PAs
+            included, enough to fill a room with hundreds of people. Lighting
+            options available.</p>
+          <a class="btn btn-primary services-inquire">Inquire</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<!-- Inquiry Modal -->
+<div id="inquiryModal" class="modal">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <!-- Modal content -->
+    <div
+      class="modal-content text-center justify-content-center"
+      style="width:400px;"
+    >
+      <span class="close2">&times;</span>
+      <h3>Inquiry</h3>
+      <form id="inquiryForm">
+        {{! NAME }}
+        <div class="mb-3">
+          <label for="inputName" class="form-label">Name</label>
+          <input type="text" class="form-control" id="inputName" required />
+        </div>
+        {{! EMAIL }}
+        <div class="mb-3">
+          <label for="inputEmail" class="form-label">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="inputEmail"
+            aria-describedby="emailHelp"
+            required
+          />
+          <div id="emailHelp" class="form-text">We'll never share your email
+            with anyone else.
+          </div>
+        </div>
+        {{! PHONE }}
+        <div class="mb-3">
+          <label for="inputPhone" class="form-label">Phone</label>
+          <input
+            type="tel"
+            class="form-control"
+            id="inputPhone"
+            aria-describedby="phoneHelp"
+          />
+          <div id="emailHelp" class="form-text">(Optional)</div>
+        </div>
+        {{! PACKAGE }}
+        <div class="mb-3">
+          <label for="inputPackage" class="form-label">Are you interested in a
+            specific package?</label>
+
+          <select
+            id="inputPackage"
+            class="form-select"
+            aria-label="Default select example"
+          >
+            <option selected>No</option>
+            <option value="Wedding Ceremony">Wedding Ceremony</option>
+            <option value="Wedding Reception">Wedding Reception</option>
+            <option value="Wedding Bundle">Wedding Bundle</option>
+            <option value="School/Corporate Event">School/Corporate Event</option>
+            <option value="Private Event">I need a DJ for a private Event</option>
+          </select>
+        </div>
+        {{! MESSAGE BODY }}
+        <div class="mb-3">
+          <label for="inputMessage" class="form-label">Message</label>
+          <textarea
+            id="inputMessage"
+            name="inquiry"
+            cols="40"
+            rows="5"
+            class="form-control"
+            required
+          ></textarea>
+        </div>
+        {{! PREFERRED CONTACT METHOD }}
+        <div>
+          <label class="form-label">How would you like us to contact you?</label>
+          {{! Email Option }}
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadio"
+              id="emailSelect"
+              checked
+            />
+            <label class="form-check-label" for="flexRadioDefault1">
+              Email
+            </label>
+          </div>
+          {{! Phone Option }}
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="flexRadio"
+              id="phoneSelect"
+            />
+            <label class="form-check-label" for="flexRadioDefault2">
+              Phone
+            </label>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <p id="submitMessage" style="display:none;">Inquiry Successfully
+        Submitted. We'll get back to you within 48 hours.</p>
+    </div>
+  </div>
+</div>
+<script src="/js/services.js"></script>
