@@ -177,3 +177,22 @@ footer {
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
 }
+
+/* ABOUT PAGE */
+.aboutContainer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.aboutParagraph {
+  width: 40%;
+  font-size: 1.25vw;
+  line-height: 2vw;
+}
+.bobbyPic {
+  max-width: 25%;
+  border-radius: 200px;
+}
