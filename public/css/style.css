@@ -152,6 +152,16 @@ footer {
   display: flex;
   flex-direction: column;
 }
+.servicesContainer {
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.servicesCards {
+  justify-content: center;
+  align-items: stretch;
+  width: 90%;
+}
 
 .servicesDescription {
   width: 70%;
@@ -189,10 +199,30 @@ footer {
 
 .aboutParagraph {
   width: 40%;
-  font-size: 1.25vw;
-  line-height: 2vw;
+  font-size: 2rem;
+  line-height: 3rem;
 }
 .bobbyPic {
   max-width: 25%;
   border-radius: 200px;
+}
+
+@media screen and (max-width: 780px) {
+  .servicesCards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .aboutContainer {
+    flex-direction: column-reverse;
+  }
+
+  .aboutParagraph {
+    width: 80%;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+  .bobbyPic {
+    max-width: 60%;
+  }
 }

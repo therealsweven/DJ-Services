@@ -11,7 +11,7 @@
   </div>
   <div class="servicesContainer col-10 text-center">
     <h2>DJ Packages</h2>
-    <div class="d-flex flex-row justify-content-around">
+    <div class="d-flex justify-content-around servicesCards">
       <div class="card p-3 m-2" style="width: 40rem;">
         <img
           class="card-img-top"
@@ -19,7 +19,7 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title" style="bold">Wedding Ceremony Package</h5>
+          <h4 class="card-title" style="bold">Wedding Ceremony Package</h4>
           <p>Price: $399</p>
           <p class="card-text">Two small PA speakers and a wireless lapel mic
             for the minister. Custom selection of pre-ceremony playlist and
@@ -35,7 +35,7 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title">Wedding Rececption Package</h5>
+          <h4 class="card-title">Wedding Rececption Package</h4>
           <p>Price: $799</p>
           <p class="card-text">Two large PA speakers, basic disco lights, strobe
             lights, and lasers for dance floor upon request. Package includes up
@@ -47,7 +47,7 @@
         </div>
       </div>
     </div>
-    <div class="d-flex flex-row justify-content-around">
+    <div class="d-flex justify-content-around servicesCards">
       <div class="card p-3 m-2" style="width: 40rem;">
         <img
           class="card-img-top"
@@ -55,7 +55,7 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title">Wedding Bundle Package</h5>
+          <h4 class="card-title">Wedding Bundle Package</h4>
           <p>Price: $999</p>
           <p class="card-text">Two small PA speakers and a wireless lapel mic
             for the minister. Custom selection of pre-ceremony playlist and
@@ -76,7 +76,7 @@
           alt="Card image cap"
         />
         <div class="card-body">
-          <h5 class="card-title">School/Corporate Events</h5>
+          <h4 class="card-title">School/Corporate Events</h4>
           <p>Price: $399</p>
           <p class="card-text">Up to 3 hours of music for a school or corporate
             event. Additional time may be added for $100/hr. Two large PAs
@@ -97,13 +97,13 @@
       <h3 class="text-center">Inquiry</h3>
       <form id="inquiryForm">
         {{! NAME }}
-        <div class="mb-3">
+        <div class="mb-2">
           <label for="inputName" class="form-label">Name</label>
           <input type="text" class="form-control" id="inputName" required />
         </div>
         {{! EMAIL }}
-        <div class="mb-3">
-          <label for="inputEmail" class="form-label">Email address</label>
+        <div class="mb-2">
+          <label for="inputEmail" class="form-label">Email Address</label>
           <input
             type="email"
             class="form-control"
@@ -116,7 +116,7 @@
           </div>
         </div>
         {{! PHONE }}
-        <div class="mb-3">
+        <div class="mb-2">
           <label for="inputPhone" class="form-label">Phone</label>
           <input
             type="tel"
@@ -127,7 +127,7 @@
           <div id="emailHelp" class="form-text">(Optional)</div>
         </div>
         {{! PACKAGE }}
-        <div class="mb-3">
+        <div class="mb-2">
           <label for="inputPackage" class="form-label">Are you interested in a
             specific package?</label>
 
@@ -145,7 +145,7 @@
           </select>
         </div>
         {{! MESSAGE BODY }}
-        <div class="mb-3">
+        <div class="mb-2">
           <label for="inputMessage" class="form-label">Message</label>
           <textarea
             id="inputMessage"
