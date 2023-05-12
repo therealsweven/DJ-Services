@@ -82,7 +82,7 @@ module.exports = {
         <p>Phone: ${info.phone}</p>
         <p>Date: ${info.date}</p>
         <p>Comm: ${info.commMethod}</p>
-        <p>Info: ${info.message}</p>`,
+        <p>Message: ${info.message}</p>`,
       };
       const result = transporter.sendMail(mailOptions);
       return result;

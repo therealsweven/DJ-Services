@@ -1,9 +1,14 @@
 :root {
-  --light: #fbf8f1;
+  /* --light: #fbf8f1;
   --light2: #f7ecde;
   --dark: #e9dac1;
   --gold: #bdb21c;
-  --accent: #54bab9;
+  --accent: #54bab9; */
+  --light: #e384ff;
+  --light2: #515151;
+  --dark: #191825;
+  --gold: #bdb21c;
+  --accent: #7e53ff;
 }
 
 .navbar {
@@ -40,7 +45,8 @@ a:focus,
 }
 
 body {
-  background: var(--light2);
+  background: var(--dark);
+  color: white;
   font-family: "Philosopher", sans-serif;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -89,8 +95,12 @@ footer {
   transform: translate(-50%, -50%);
 }
 
-/* #contactForm {
-} */
+#contactForm {
+  padding: 2%;
+  background-color: var(--light2);
+  border: var(--accent) solid 1px;
+  border-radius: 15px;
+}
 
 /* 
  */
@@ -171,7 +181,7 @@ footer {
 }
 
 .card {
-  background-color: var(--dark);
+  background-color: var(--light2);
   border-color: var(--accent);
   border-radius: 2%;
   border-width: 2%;

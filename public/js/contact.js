@@ -1,4 +1,7 @@
 const formEl = $("#contactForm");
+const instruct = $("#instruct");
+const formBody = $("#formBody");
+const msg = $("#successMessage");
 
 const getUserInput = async () => {
   const name = $("#inputName").val();
@@ -32,6 +35,9 @@ const getUserInput = async () => {
 
   if (response.ok) {
     console.log("sent to db", "email sent");
+    instruct.hide();
+    formBody.hide();
+    msg.show();
   } else {
     alert("Something went wrong...we're sorry, please try again later.");
   }

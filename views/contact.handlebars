@@ -3,97 +3,102 @@
   <div class="row">
     <div class="mx-auto col-10 col-md-8 col-lg-6">
       <h1 class="text-center">Contact Us</h1>
-      <h4 class="text-center">Please send us a message below if you are
-        interested in booking a DJ through us.</h4>
+      <h4 id="instruct" class="text-center">Please send us a message below if
+        you are interested in booking a DJ through us.</h4>
       <form id="contactForm">
-        {{! NAME }}
-        <div class="mb-3">
-          <label for="inputName" class="form-label">Name</label>
-          <input
-            type="text"
-            class="form-control w-50"
-            id="inputName"
-            required
-          />
-        </div>
-        {{! EMAIL }}
-        <div class="mb-3">
-          <label for="inputEmail" class="form-label">Email address</label>
-          <input
-            type="email"
-            class="form-control w-50"
-            id="inputEmail"
-            aria-describedby="emailHelp"
-            required
-          />
-          <div id="emailHelp" class="form-text">We'll never share your email
-            with anyone else.
-          </div>
-        </div>
-        {{! PHONE }}
-        <div class="mb-3">
-          <label for="inputPhone" class="form-label">Phone</label>
-          <input
-            type="tel"
-            class="form-control w-50"
-            id="inputPhone"
-            aria-describedby="phoneHelp"
-          />
-          <div id="emailHelp" class="form-text">(Optional)</div>
-        </div>
-        {{! DATE }}
-        <div class="mb-3">
-          <label for="inputDate" class="form-label">Date of Event</label>
-          <input
-            type="date"
-            class="form-control w-50"
-            id="inputDate"
-            aria-describedby="DateHelp"
-          />
-          <div id="emailHelp" class="form-text">(Optional)</div>
-        </div>
-        {{! MESSAGE BODY }}
-        <div class="mb-3">
-          <label for="inputMessage" class="form-label">Message</label>
-          <textarea
-            id="inputMessage"
-            name="inquiry"
-            cols="40"
-            rows="5"
-            class="form-control"
-            required
-          ></textarea>
-        </div>
-        {{! PREFERRED CONTACT METHOD }}
-        <div>
-          <label class="form-label">How would you like us to contact you?</label>
-          {{! Email Option }}
-          <div class="form-check">
+        <div id="formBody">
+          {{! NAME }}
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Name</label>
             <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadio"
-              id="emailSelect"
-              checked
+              type="text"
+              class="form-control w-50"
+              id="inputName"
+              required
             />
-            <label class="form-check-label" for="flexRadioDefault1">
-              Email
-            </label>
           </div>
-          {{! Phone Option }}
-          <div class="form-check">
+          {{! EMAIL }}
+          <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email address</label>
             <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadio"
-              id="phoneSelect"
+              type="email"
+              class="form-control w-50"
+              id="inputEmail"
+              aria-describedby="emailHelp"
+              required
             />
-            <label class="form-check-label" for="flexRadioDefault2">
-              Phone
-            </label>
+            <div id="emailHelp" class="form-text">We'll never share your email
+              with anyone else.
+            </div>
           </div>
+          {{! PHONE }}
+          <div class="mb-3">
+            <label for="inputPhone" class="form-label">Phone</label>
+            <input
+              type="tel"
+              class="form-control w-50"
+              id="inputPhone"
+              aria-describedby="phoneHelp"
+            />
+            <div id="emailHelp" class="form-text">(Optional)</div>
+          </div>
+          {{! DATE }}
+          <div class="mb-3">
+            <label for="inputDate" class="form-label">Date of Event</label>
+            <input
+              type="date"
+              class="form-control w-50"
+              id="inputDate"
+              aria-describedby="DateHelp"
+            />
+            <div id="emailHelp" class="form-text">(Optional)</div>
+          </div>
+          {{! MESSAGE BODY }}
+          <div class="mb-3">
+            <label for="inputMessage" class="form-label">Message</label>
+            <textarea
+              id="inputMessage"
+              name="inquiry"
+              cols="40"
+              rows="5"
+              class="form-control"
+              required
+            ></textarea>
+          </div>
+          {{! PREFERRED CONTACT METHOD }}
+          <div>
+            <label class="form-label">How would you like us to contact you?</label>
+            {{! Email Option }}
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadio"
+                id="emailSelect"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                Email
+              </label>
+            </div>
+            {{! Phone Option }}
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadio"
+                id="phoneSelect"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Phone
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <p id="successMessage" style="display:none">Your request has been
+          received. Please check your email for confirmation, and we will get
+          back to you ASAP.</p>
       </form>
     </div>
   </div>
