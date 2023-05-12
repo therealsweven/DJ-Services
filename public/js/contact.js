@@ -29,7 +29,7 @@ const getUserInput = async () => {
   });
 
   if (response.ok) {
-    console.log("sent to db");
+    console.log("sent to db", "email sent");
   } else {
     alert("Something went wrong...we're sorry, please try again later.");
   }
