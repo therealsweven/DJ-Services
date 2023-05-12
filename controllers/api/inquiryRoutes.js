@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { sendMail } = require("../../utils/helpers");
+const { sendConfirmation, sendInfoToMe } = require("../../utils/helpers");
 
 const { Inquiry } = require("../../models");
 
@@ -16,9 +16,12 @@ router.post("/", async (req, res) => {
     console.log(req.body);
     req.body.active = true;
     await Inquiry.create(req.body);
-    const emailResult = await sendMail(req.body);
-    console.log("Email Sent", emailResult);
-    res.status(200).json("contact request received");
+    const email1 = await sendConfirmation(req.body);
+    const email2 = await sendInfoToMe(req.body);
+    if (email2.response) {
+      console.log("Email Sent", email1, email2);
+      return res.status(200).json("contact request received");
+    }
   } catch (err) {
     res.status(500).json(err);
   }

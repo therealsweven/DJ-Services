@@ -4,6 +4,7 @@ const getUserInput = async () => {
   const name = $("#inputName").val();
   const email = $("#inputEmail").val().trim();
   const phone = $("#inputPhone").val();
+  const date = $("#inputDate").val();
   const message = $("#inputMessage").val();
   const phoneCheck = $("#phoneSelect").val();
   const emailCheck = $("#emailSelect").val();
@@ -16,11 +17,12 @@ const getUserInput = async () => {
   const inquiry = {
     name: name,
     email: email,
+    date: date,
     phone: phone,
     message: message,
     commMethod: commMethod,
   };
-  //console.log(inquiry);
+  console.log(inquiry);
 
   const response = await fetch("/api/inquiries/", {
     method: "POST",
