@@ -43,6 +43,7 @@ body {
   background: var(--light2);
   font-family: "Philosopher", sans-serif;
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 header {
