@@ -268,6 +268,20 @@ footer-link {
   cursor: pointer;
 }
 
+/* ADMIN */
+/* Inquiries */
+#inquiryCards {
+  display: flex;
+  flex-wrap: wrap;
+}
+.inquiryCard {
+  background-color: var(--light2);
+  border: solid var(--accent) 1px;
+  border-radius: 10px;
+  margin: 1%;
+  padding: 2%;
+}
+
 @media screen and (max-width: 780px) {
   .servicesCards {
     flex-direction: column;

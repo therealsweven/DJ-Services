@@ -11,36 +11,40 @@ Inquiry.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    package: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        isEmail: true,
-      },
-    },
-    phone: {
-      type: DataTypes.STRING,
-    },
-    message: {
+    dateCreated: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    date: {
+    amount: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    dateOfEvent: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     package: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     commMethod: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    responded: {
-      type: DataTypes.BOOLEAN,
+    clientId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: "client",
+        key: "id",
+      },
+    },
+    notes: {
+      type: DataTypes.STRING,
     },
     active: {
       type: DataTypes.BOOLEAN,
@@ -49,7 +53,7 @@ Inquiry.init(
   },
   {
     sequelize,
-    timestamps: true,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: "inquiry",
