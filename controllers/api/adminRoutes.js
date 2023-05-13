@@ -40,7 +40,7 @@ router.post("/login", async (req, res) => {
       // add admin id to session
       req.session.Admin = dbAdminData.id;
       res.cookie("adminLoggedIn", true, { maxAge: 3000000, httpOnly: true });
-      res.redirect("/AdminPortal");
+      res.json("login successful");
     });
   } catch (err) {
     console.log(err);

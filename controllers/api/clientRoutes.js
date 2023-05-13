@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Client } = require("../../models");
-//const emails = require("../../helpers/emails");
+const { sendClientPortalLogin } = require("../../utils/helpers");
 const { v4: uuidv4 } = require("uuid");
 
 /* 
@@ -43,7 +43,8 @@ router.post("/create", async (req, res) => {
 req.body should be:
 
 {
-  name: STRING,
+  first: STRING,
+  last: STRING,
   email: STRING,
   phone: STRING,
   password: STRING,
@@ -51,12 +52,14 @@ req.body should be:
 
 */
   try {
+    const tempPW = uuidv4();
+    req.body.password = tempPW;
     console.log(req.body);
     // create client in Db
     const newClient = await Client.create(req.body);
-
+    console.log(newClient);
     // send welcome email
-    await emails.sendWelcomeEmail(newClient).catch(console.error);
+    await sendClientPortalLogin(req.body).catch(console.error);
 
     res.status(200).json(newClient);
   } catch (err) {
@@ -81,7 +84,6 @@ req.body should be:
         email: req.body.email,
       },
     });
-
     if (!dbClientData) {
       res
         .status(400)
@@ -90,7 +92,8 @@ req.body should be:
     }
 
     const validPassword = await dbClientData.checkPassword(req.body.password);
-
+    console.log(validPassword);
+    console.log(dbClientData);
     if (!validPassword) {
       res
         .status(400)
@@ -102,7 +105,7 @@ req.body should be:
       // add client id to session
       req.session.currentClient = dbClientData.id;
       res.cookie("loggedIn", true, { maxAge: 3000000, httpOnly: true });
-      res.redirect("/portal");
+      res.json("login successful");
     });
   } catch (err) {
     console.log(err);

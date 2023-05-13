@@ -2,10 +2,6 @@ const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
 require("dotenv").config();
 
-// CLIENT_ID = '452002313861-h27los1iisks6usk9m1ba9dt7ktqumol.apps.googleusercontent.com'
-// CLIENT_SECRET = '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'
-// REDIRECT_URI = 'https://developers.google.com/oauthplayground'
-// REFRESH_TOKEN = '1//04LmANk1JFfsaCgYIARAAGAQSNwF-L9Irjf1aPwFe7cqvpHGoig07KPgA3HkYP1PO_0ozUrvCGVPEDXLctkibvUFLfFkoOwV7GhA'
 //set up OAUTH 2.0 Client
 const oAuth2Client = new google.auth.OAuth2(
   process.env.CLIENT_ID,
@@ -85,6 +81,40 @@ module.exports = {
         <p>Comm: ${info.commMethod}</p>
         <p>Package: ${info.package}</p>
         <p>Message: ${info.message}</p>`,
+      };
+      const result = transporter.sendMail(mailOptions);
+      return result;
+    } catch (err) {
+      return err;
+    }
+  },
+  sendClientPortalLogin: async (info) => {
+    try {
+      const accessToken = await oAuth2Client.getAccessToken();
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          type: "OAuth2",
+          user: "info@denverdjservices.com",
+          clientId: process.env.CLIENT_ID,
+          clientSecret: process.env.CLIENT_SECRET,
+          refreshToken: process.env.REFRESH_TOKEN,
+          accessToken: accessToken,
+        },
+      });
+      const mailOptions = {
+        from: "Denver DJ Services 🎵<info@denverdjservices.com>",
+        to: info.email,
+        subject: "Denver DJ Services Portal Access",
+        text: `Hello ${info.first},
+        You may access our online portal to make payments and update your contact information.  Please visit www.denverdjservices.com to login using the email address this message was sent to and the temporary password provided in this email.  You may change your password once you are logged in.  Your temporary password is '${info.password}'.  Please feel free to reach out by phone or email if you have any issues accessing your account.  Thanks, and have a magical day! Best wishes, Denver DJ Services`,
+        html: `<p>Hello ${info.first},</p>
+        <p>You can access our online portal to make digital payments and update your contact information.  Please visit www.denverdjservices.com to login using the email address this message was sent to and the temporary password provided in this email.  You may change your password once you are logged in. </p> 
+        <p>Your temporary password is <b>${info.password}</b>  </p>
+        <p>Please feel free to reach out by phone or email if you have any issues accessing your account.  Thanks, and have a magical day!</p>
+        </br></br>
+        <p>Best wishes,</p></br>
+        <p>Denver DJ Services🎵</p>`,
       };
       const result = transporter.sendMail(mailOptions);
       return result;

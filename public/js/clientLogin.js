@@ -22,3 +22,24 @@ window.onclick = function (event) {
     loginModal.hide();
   }
 };
+
+// password check
+$("#clientLoginBtn").click(async (event) => {
+  console.log("boop");
+  event.preventDefault();
+  const email = $("#loginInputEmail").val();
+  const password = $("#loginInputPassword").val();
+  if (password) {
+    const response = await fetch("/api/client/login", {
+      method: "POST",
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
+    });
+    console.log(response);
+    if (response.ok) {
+      window.location.replace("/ClientPortal");
+    } else {
+      alert("Failed to log in.");
+    }
+  }
+});
