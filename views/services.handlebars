@@ -1,4 +1,4 @@
-<main class="servicesMain">
+<main class="servicesMain align-items-center">
   <div class="servicesDescription">
     <h1>Services</h1>
     <h4>Our DJs are trained to provide you with the most magical vibes for any
@@ -9,10 +9,10 @@
       may have, i.e. you need something not listed in our standard packages.
     </h4>
   </div>
-  <div class="servicesContainer col-10 text-center">
+  <div class="servicesContainer col-10 text-center justify-content-center">
     <h2>DJ Packages</h2>
-    <div class="d-flex justify-content-around servicesCards">
-      <div class="card p-3 m-2" style="width: 40rem;">
+    <div class="d-flex justify-content-evenly servicesCards flex-wrap">
+      <div class="card p-3 m-2">
         <img
           class="card-img-top"
           src="/images/wedding-ceremony.jpg"
@@ -28,7 +28,7 @@
           <a class="btn btn-primary services-inquire">Inquire</a>
         </div>
       </div>
-      <div class="card p-3 m-2" style="width: 40rem;">
+      <div class="card p-3 m-2">
         <img
           class="card-img-top"
           src="/images/wedding-reception-card.jpg"
@@ -46,9 +46,7 @@
           <a class="btn btn-primary services-inquire">Inquire</a>
         </div>
       </div>
-    </div>
-    <div class="d-flex justify-content-around servicesCards">
-      <div class="card p-3 m-2" style="width: 40rem;">
+      <div class="card p-3 m-2">
         <img
           class="card-img-top"
           src="/images/wedding-bundle-card.jpg"
@@ -69,7 +67,7 @@
           <a class="btn btn-primary services-inquire">Inquire</a>
         </div>
       </div>
-      <div class="card p-3 m-2" style="width: 40rem;">
+      <div class="card p-3 m-2">
         <img
           class="card-img-top"
           src="/images/school-dance-card.jpg"
@@ -86,6 +84,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </main>
 <!-- Inquiry Modal -->
@@ -93,8 +92,10 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <!-- Modal content -->
     <div class="modal-content" style="width:400px;">
-      <span class="close2">&times;</span>
-      <h3 class="text-center">Inquiry</h3>
+      <div class="d-flex">
+        <span class="close2 justify-self-left">&times;</span>
+        <h3 class="text-center justify-self-center">Inquiry</h3>
+      </div>
       <form id="inquiryForm">
         {{! NAME }}
         <div class="mb-2">
@@ -159,30 +160,33 @@
         {{! PREFERRED CONTACT METHOD }}
         <div>
           <label class="form-label">How would you like us to contact you?</label>
-          {{! Email Option }}
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadio"
-              id="emailSelect"
-              checked
-            />
-            <label class="form-check-label" for="flexRadioDefault1">
-              Email
-            </label>
-          </div>
-          {{! Phone Option }}
-          <div class="form-check">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="flexRadio"
-              id="phoneSelect"
-            />
-            <label class="form-check-label" for="flexRadioDefault2">
-              Phone
-            </label>
+          <div class="d-flex justify-content-start">
+            {{! Email Option }}
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadio"
+                id="emailSelect"
+                checked
+              />
+              <label class="form-check-label" for="flexRadioDefault1">
+                Email
+              </label>
+            </div>
+            <div style="width:3%;"></div>
+            {{! Phone Option }}
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadio"
+                id="phoneSelect"
+              />
+              <label class="form-check-label" for="flexRadioDefault2">
+                Phone
+              </label>
+            </div>
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>

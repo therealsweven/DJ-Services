@@ -15,11 +15,12 @@
   background-color: var(--accent);
   border-radius: 0px;
   text-align: center;
+  height: 80px;
 }
 .nav-link,
 .nav-item {
   color: #fbf8f1;
-  font-size: x-large;
+  font-size: large;
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 2%;
@@ -41,7 +42,7 @@ a:focus,
   /* color: #54bab9; */
   color: white;
   text-decoration: none;
-  text-shadow: rgb(246, 255, 125) 2px 2px 10px;
+  text-shadow: var(--light) 2px 2px 10px;
 }
 
 body {
@@ -50,10 +51,12 @@ body {
   font-family: "Philosopher", sans-serif;
   margin-top: 0px;
   margin-bottom: 0px;
+  width: 100%;
 }
 
 header {
   margin-bottom: 0px;
+  border-bottom: var(--light2) double 3px;
 }
 
 main {
@@ -62,24 +65,32 @@ main {
 footer {
   background: var(--accent);
   color: #fbf8f1;
+  border-top: var(--light2) double 3px;
+}
+footer-link {
+  color: white;
 }
 
 #headerLogo {
   text-align: center;
   transition: all 0.7s ease;
-  width: 15%;
   margin-left: 1%;
   padding: 0%;
+  height: 100%;
+}
+.logo-link {
+  height: 100%;
 }
 
 #imageContainer {
   width: 100%;
   margin-top: 0px;
   color: var(--light);
+  color: white;
   font-size: x-large;
   justify-content: center;
   text-align: center;
-  text-shadow: black 2px 2px 10px;
+  text-shadow: rgb(96, 96, 96) 2px 2px 5px;
 }
 
 .carouselImage {
@@ -90,9 +101,16 @@ footer {
 
 .centered {
   position: absolute;
-  top: 130%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: rgba(116, 116, 116, 0.768);
+  width: 90%;
+  border-top: solid var(--accent) 4px;
+  border-bottom: solid var(--accent) 4px;
+  border-radius: 70%;
+  padding: 5%;
+  font-size: 2rem;
 }
 
 #contactForm {
@@ -102,6 +120,9 @@ footer {
   border-radius: 15px;
 }
 
+.form-text {
+  color: rgba(255, 255, 255, 0.726);
+}
 /* 
  */
 
@@ -121,16 +142,16 @@ footer {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: var(--dark);
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
-  border: 1px solid #888;
+  border: 1px solid var(--accent);
   width: 80%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
-  color: #aaa;
+  color: #ffffff;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -138,12 +159,12 @@ footer {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: var(--light);
   text-decoration: none;
   cursor: pointer;
 }
 .close2 {
-  color: #aaa;
+  color: #ffffff;
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -151,7 +172,7 @@ footer {
 
 .close2:hover,
 .close2:focus {
-  color: black;
+  color: var(--light);
   text-decoration: none;
   cursor: pointer;
 }
@@ -162,6 +183,7 @@ footer {
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding-bottom: 3%;
 }
 .servicesContainer {
   flex-wrap: wrap;
@@ -170,8 +192,7 @@ footer {
 }
 .servicesCards {
   justify-content: center;
-  align-items: stretch;
-  width: 90%;
+  width: 100%;
 }
 
 .servicesDescription {
@@ -185,6 +206,7 @@ footer {
   border-color: var(--accent);
   border-radius: 2%;
   border-width: 2%;
+  width: 45%;
 }
 
 /* The Modal (background) */
@@ -209,13 +231,34 @@ footer {
 }
 
 .aboutParagraph {
-  width: 40%;
   font-size: 2rem;
   line-height: 3rem;
 }
+
+.about-paragraphs {
+  width: 60%;
+}
+
 .bobbyPic {
-  max-width: 25%;
+  max-width: 30%;
   border-radius: 200px;
+  border: var(--accent) solid 1px;
+}
+
+.btn {
+  background-color: var(--accent);
+  border: solid white 1px;
+  transition: ease-in-out 0.2s;
+}
+
+.btn:hover {
+  background-color: var(--accent);
+  border: solid white 1px;
+  transform: scale(1.2);
+  text-shadow: none;
+}
+.form-control {
+  width: 60%;
 }
 
 @media screen and (max-width: 780px) {
@@ -233,7 +276,28 @@ footer {
     font-size: 2rem;
     line-height: 2rem;
   }
+  .about-paragraphs {
+    width: 100%;
+  }
   .bobbyPic {
-    max-width: 60%;
+    max-width: 40%;
+  }
+  .centered {
+    top: 37%;
+    font-size: 1.5rem;
+    padding: 7%;
+  }
+  .card {
+    width: 100%;
+  }
+  .form-control {
+    width: 100%;
+  }
+  .footer-container {
+    width: fit-content;
+    flex-direction: column;
+  }
+  .socials {
+    flex-direction: column;
   }
 }
