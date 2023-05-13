@@ -22,28 +22,65 @@
     <div id="inquiriesContainer">
       <h3 class="text-center">Active Inquiries</h3>
       <div id="inquiryCards">
-
       </div>
     </div>
-    <div>
+    <div id="createClientAndInvoiceContainer" class="d-flex justify-content-center">
+      <div id="createClientContainer" class="ml-5 text-center align-center">
       <h3 class="text-center">Create New Client</h3>
-      <form>
+      <form id="createClientForm" class=" align-center">
+        <input id="firstNameInput" type="text" class="form-control w-75" />
         <label for="firstNameInput">First Name</label>
-        <input id="firstNameInput" type="text" class="form-control" />
+        <input id="lastNameInput" type="text" class="form-control w-75" />
         <label for="lastNameInput">Last Name</label>
-        <input id="lastNameInput" type="text" class="form-control" />
+        <input id="clientEmailInput" type="email" class="form-control w-75" />
         <label for="clientEmailInput">Email</label>
-        <input id="clientEmailInput" type="email" class="form-control" />
-        <label for="clientPhoneInput">Phone</label>
-        <input id="clientPhoneInput" type="tel" class="form-control" />
+        <input id="clientPhoneInput" type="tel" class="form-control w-75" />
+        <label for="clientPhoneInput">Phone (Optional)</label>
         <button id="createClientBtn" class="btn" type="submit">Submit</button>
       </form>
       <h4 id="createClientSuccess" style="display:none">Client successfully
         created</h4>
+      </div>
+      <div id="createInvoiceContainer">
+      <h3 class="text-center">Create New Invoice</h3>
+      <form id="createInvoiceForm" class="d-flex flex-column text-center align-items-center">
+        {{!-- <input id="clientNameInput" type="text" class="form-control w-75" />
+        <label for="clientNameInput">Client</label> --}}
+        <select id="clientNameInput" class="form-control w-75">
+          <option value=''>Select Client</option>
+          {{#each clients}}
+          <option value={{id}}>{{id}}-{{first}} {{last}}</option>
+          {{/each}}
+        </select>
+        <label for="clientNameInput">Client</label>
+        <div class="d-flex w-75 justify-content-evenly">
+          <div class="px-2 text-center">
+            <input id="amount" type="number" class="form-control w-100" />
+            <label for="amount">Invoice Amount</label>
+          </div>
+          <div class="px-2 text-center">
+            <input id="discount" type="number" class="form-control w-100" />
+            <label for="discount">Discount Amount</label>
+          </div>
+          <div class="px-2 text-center">
+            <input id="dateOfEvent" type="date" class="form-control w-100" />
+            <label for="dateOfEvent">Date of Event</label>
+          </div>
+        </div>
+        <input id="invoicePackage" tyinvoicePe="text" class="form-control w-75" />
+        <label for="invoicePackage">Package</label>
+        <input id="invoiceNotes" type="text" class="form-control w-75" />
+        <label for="invoiceNotes">Notes</label>
+        <button id="createInvoiceBtn" class="btn" type="submit">Submit</button>
+      </form>
+        <h4 id="createInvoiceSuccess" style="display:none">Invoice successfully
+        created
+        </h4>
+      </div>
     </div>
-    <h3 class="text-center">Create New Invoice</h3>
   </div>
 {{/if}}
 <script src="/js/admin/loginLogout.js"></script>
 <script src="/js/admin/inquiries.js"></script>
 <script src="/js/admin/createClient.js"></script>
+<script src="/js/admin/invoices.js"></script>

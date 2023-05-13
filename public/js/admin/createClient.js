@@ -17,6 +17,9 @@ $("#createClientBtn").click(async (e) => {
       $("#clientEmailInput").val("");
       $("#clientPhoneInput").val("");
       $("#createClientSuccess").show();
+      setTimeout(() => {
+        window.location.reload();
+      }, 1500);
     } else {
       alert("Try again!");
     }

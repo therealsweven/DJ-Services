@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/config.js");
 
-class Inquiry extends Model {}
+class Invoice extends Model {}
 
-Inquiry.init(
+Invoice.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,14 +11,7 @@ Inquiry.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    package: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    dateCreated: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+
     amount: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -32,11 +25,6 @@ Inquiry.init(
     },
     package: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    commMethod: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     clientId: {
       type: DataTypes.INTEGER,
@@ -56,11 +44,11 @@ Inquiry.init(
   },
   {
     sequelize,
-    timestamps: false,
+    timestamps: true,
     freezeTableName: true,
     underscored: true,
-    modelName: "inquiry",
+    modelName: "invoice",
   }
 );
 
-module.exports = Inquiry;
+module.exports = Invoice;

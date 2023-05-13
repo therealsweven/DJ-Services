@@ -1,5 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
+const { Client } = require("../models");
 
 // homepage load
 router.get("/", (req, res) => {
@@ -47,11 +48,13 @@ router.get("/reviews", (req, res) => {
 });
 
 // admin
-router.get("/admin", (req, res) => {
+router.get("/admin", async (req, res) => {
   try {
     const sesh = req.session;
-    console.log(req.session.adminLoggedIn);
-    res.status(200).render("admin", { sesh });
+    const clientData = await Client.findAll();
+    const clients = clientData.map((client) => client.toJSON());
+    console.log(clients);
+    res.status(200).render("admin", { sesh, clients });
   } catch (err) {
     res.status(500).json(err);
   }

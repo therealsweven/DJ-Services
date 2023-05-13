@@ -286,6 +286,7 @@ footer-link {
 #inquiryCards {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 .inquiryCard {
   background-color: var(--light2);
@@ -293,6 +294,49 @@ footer-link {
   border-radius: 10px;
   margin: 1%;
   padding: 2%;
+}
+
+#createClientContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+}
+#createInvoiceContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+}
+
+#createClientContainer form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+  background-color: #515151;
+  border: solid var(--accent) 2px;
+  border-radius: 5%;
+  padding: 4%;
+  width: 90%;
+}
+#createInvoiceContainer form {
+  background-color: #515151;
+  border: solid var(--accent) 2px;
+  border-radius: 5%;
+  padding: 4%;
+  width: 90%;
+}
+
+#createClientSuccess {
+  text-align: center;
+}
+
+#createClientContainer {
+  width: 50%;
+}
+#createInvoiceContainer {
+  width: 50%;
 }
 
 @media screen and (max-width: 780px) {
@@ -345,5 +389,14 @@ footer-link {
     padding: 4%;
     width: 90%;
     margin-bottom: 2%;
+  }
+  #createClientAndInvoiceContainer {
+    flex-direction: column;
+  }
+  #createClientContainer {
+    width: 100%;
+  }
+  #createInvoiceContainer {
+    width: 100%;
   }
 }

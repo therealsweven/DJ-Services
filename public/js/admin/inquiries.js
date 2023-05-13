@@ -3,29 +3,31 @@ const cardsContainer = $("#inquiryCards");
 //function to display inquiries
 const displayInquiries = (inquiries) => {
   inquiries.forEach((i) => {
-    const card = document.createElement("div");
-    card.setAttribute("id", `${i.id}`);
-    card.classList.add("inquiryCard");
-    card.innerHTML = `
+    if (i.active) {
+      const card = document.createElement("div");
+      card.setAttribute("id", `${i.id}`);
+      card.classList.add("inquiryCard");
+      card.innerHTML = `
                     <p>ID: ${i.id}</p>
-                    <p>Inquiry Date: ${i.createdAt}</p>
+                    <p>Inquiry Date: ${i.createdAt.slice(0, 10)}</p>
                     <p>Event Date: ${i.date}</p>
                     <p>Name: ${i.name}</p>
                     <p>Email: ${i.email}</p>
                     <p>Phone: ${i.phone}</p>
                     <p>Package: ${i.package}</p>
                     <p>Comm: ${i.commMethod}</p>
+                    <p>Message: ${i.message}</p>
                     <p>Responded to: ${i.responded}</p>
-                    <p>Active: ${i.active}</p>
                     <button class="deleteInquiryBtn btn">Delete Inquiry</button>
                     `;
-    if (!i.responded) {
-      card.innerHTML +=
-        '<button class="respondBtn btn">Mark Responded</button>';
-      console.log(card.innerHTML);
+      if (!i.responded) {
+        card.innerHTML +=
+          '<button class="respondBtn btn">Mark Responded</button>';
+        console.log(card.innerHTML);
+      }
+      console.log(card);
+      cardsContainer.append(card);
     }
-    console.log(card);
-    cardsContainer.append(card);
   });
 };
 

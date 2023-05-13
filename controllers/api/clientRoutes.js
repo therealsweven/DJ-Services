@@ -37,6 +37,17 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//get all clients
+router.get("/all", async (req, res) => {
+  try {
+    const clientsData = await Client.findAll();
+    res.status(200).json(clientsData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // Create new client account
 router.post("/create", async (req, res) => {
   /*
