@@ -34,11 +34,10 @@ const getUserInput = async () => {
   const package = $("#inputPackage").val();
   const date = $("#inputDate").val();
   const message = $("#inputMessage").val();
-  const phoneCheck = $("#phoneSelect").val();
-  const emailCheck = $("#emailSelect").val();
-  if (phoneCheck === "on") {
+  const phoneCheck = $("#phoneSelect").is(":checked");
+  if (phoneCheck) {
     commMethod = "phone";
-  } else if (emailCheck === "on") {
+  } else {
     commMethod = "email";
   }
 

@@ -23,6 +23,9 @@ Inquiry.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    discount: {
+      type: DataTypes.INTEGER,
+    },
     dateOfEvent: {
       type: DataTypes.STRING,
       allowNull: false,
