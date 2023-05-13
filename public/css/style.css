@@ -96,21 +96,34 @@ footer-link {
 .carouselImage {
   width: 100%;
   margin: 0px;
-  opacity: 0.9;
+  opacity: 0.6;
+  background-color: #515151;
 }
 
 .centered {
   position: absolute;
-  top: 70%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(116, 116, 116, 0.768);
-  width: 90%;
-  border-top: solid var(--accent) 4px;
-  border-bottom: solid var(--accent) 4px;
+  background-color: rgba(116, 116, 116, 0.475);
+  width: 60%;
+  border-top: groove var(--accent) 5px;
+  border-bottom: groove var(--accent) 5px;
   border-radius: 70%;
-  padding: 5%;
+  padding: 2%;
   font-size: 2rem;
+}
+#homeCards {
+  padding: 3%;
+  background-color: var(--dark);
+  border-top: var(--accent) double 3px;
+}
+.homeCard {
+  border-left: solid var(--accent) 1.5px;
+  border-right: solid var(--accent) 1.5px;
+  background-color: var(--light 2);
+  padding: 4%;
+  width: 30%;
 }
 
 #contactForm {
@@ -304,9 +317,9 @@ footer-link {
     max-width: 40%;
   }
   .centered {
-    top: 37%;
+    top: 40%;
     font-size: 1.5rem;
-    padding: 7%;
+    padding: 2%;
   }
   .card {
     width: 100%;
@@ -320,5 +333,17 @@ footer-link {
   }
   .socials {
     flex-direction: column;
+  }
+  #homeCardsContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .homeCard {
+    border: solid var(--accent) 1.5px;
+    border-radius: 15px;
+    background-color: var(--light 2);
+    padding: 4%;
+    width: 90%;
+    margin-bottom: 2%;
   }
 }

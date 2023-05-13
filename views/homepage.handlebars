@@ -1,3 +1,4 @@
+{{> header}}
 <main>
   <div id="imageContainer">
     <img
@@ -7,10 +8,33 @@
     />
     <div class="centered">
       <h1 style="font-size: 3rem;">"MAKING MEMORIES MAGICAL"</h1>
-      <p>We offer a variety of DJ services for weddings, corporate and private
+      {{!-- <p>We offer a variety of DJ services for weddings, corporate and private
         events, dances, parties, you name it! Our experienced disc jockeys are
-        dedicated to providing you with an experience you will never forget.</p>
+        dedicated to providing you with an experience you will never forget.
+        </p> --}}
     </div>
+  </div>
+  <div id="homeCards" class="text-center">
+    <div id="homeCardsContainer" class="d-flex justify-content-evenly align-items-center">
+      <div class="homeCard d-flex flex-column text-center align-items-center">
+        <img src="images/wedding-icon.png" alt="wedding icon" class="img-fluid w-50">
+        <h3 class = "text-center">Weddings</h3>
+        <p>We would be honored to help bring the vibes on your special day.  We will help make your wedding a day to remember for everyone in attendance. </p>
+      </div>
+      <div class="homeCard d-flex flex-column align-items-center">
+        <img src="images/dance-icon.png" alt="dance icon" class="img-fluid w-50">
+        <h3 class = "text-center">Dances</h3>
+        <p>Do you need a DJ for your school dance? Don't worry, we're happy to keep things kid-friendly and provide them with an experience they won't forget!</p>
+      </div>
+      <div class="homeCard d-flex flex-column align-items-center">
+        <img src="images/wedding-icon.png" alt="party icon" class="img-fluid w-50">
+        <h3 class = "text-center">Parties</h3>
+        <p>Whether it's a birthday party, or a corporate event, we've gotcha covered! Our DJs are well-versed in a variety of music genres and getting the people moving. </p>
+      </div>
+    </div>
+    <h2>And MORE!</h2></br>
+    <button class="btn btn-lg">Contact Us Today</button>
+  </div>
 </main>
 
 {{! <main>
