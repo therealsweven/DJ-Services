@@ -32,6 +32,7 @@ const getUserInput = async () => {
   const email = $("#inputEmail").val().trim();
   const phone = $("#inputPhone").val();
   const package = $("#inputPackage").val();
+  const date = $("#inputDate").val();
   const message = $("#inputMessage").val();
   const phoneCheck = $("#phoneSelect").val();
   const emailCheck = $("#emailSelect").val();
@@ -46,6 +47,7 @@ const getUserInput = async () => {
     email: email,
     phone: phone,
     package: package,
+    date: date,
     message: message,
     commMethod: commMethod,
   };
@@ -60,7 +62,7 @@ const getUserInput = async () => {
   if (response.ok) {
     console.log("sent to db");
     $("#inquiryForm").hide();
-    $("#submitMessage").show();
+    $("#successMessage").show();
   } else {
     alert("Something went wrong...we're sorry, please try again later.");
   }

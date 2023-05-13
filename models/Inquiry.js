@@ -29,6 +29,9 @@ Inquiry.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    date: {
+      type: DataTypes.STRING,
+    },
     package: {
       type: DataTypes.STRING,
     },

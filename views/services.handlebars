@@ -92,22 +92,30 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <!-- Modal content -->
     <div class="modal-content" style="width:400px;">
-      <div class="d-flex">
+      <div class="d-flex justify-content-evenly">
         <span class="close2 justify-self-left">&times;</span>
-        <h3 class="text-center justify-self-center">Inquiry</h3>
+        <div>
+          <h3>Inquiry</h3>
+        </div>
+        <div> </div>
       </div>
       <form id="inquiryForm">
         {{! NAME }}
         <div class="mb-2">
           <label for="inputName" class="form-label">Name</label>
-          <input type="text" class="form-control" id="inputName" required />
+          <input
+            type="text"
+            class="form-control w-100"
+            id="inputName"
+            required
+          />
         </div>
         {{! EMAIL }}
         <div class="mb-2">
           <label for="inputEmail" class="form-label">Email Address</label>
           <input
             type="email"
-            class="form-control"
+            class="form-control w-100"
             id="inputEmail"
             aria-describedby="emailHelp"
             required
@@ -121,7 +129,7 @@
           <label for="inputPhone" class="form-label">Phone</label>
           <input
             type="tel"
-            class="form-control"
+            class="form-control w-100"
             id="inputPhone"
             aria-describedby="phoneHelp"
           />
@@ -134,7 +142,7 @@
 
           <select
             id="inputPackage"
-            class="form-select"
+            class="form-select w-100"
             aria-label="Default select example"
           >
             <option selected>No</option>
@@ -145,6 +153,17 @@
             <option value="Private Event">I need a DJ for a private Event</option>
           </select>
         </div>
+        {{! DATE }}
+        <div class="mb-3">
+          <label for="inputDate" class="form-label">Date of Event</label>
+          <input
+            type="date"
+            class="form-control"
+            id="inputDate"
+            aria-describedby="DateHelp"
+          />
+          <div id="emailHelp" class="form-text">(Optional)</div>
+        </div>
         {{! MESSAGE BODY }}
         <div class="mb-2">
           <label for="inputMessage" class="form-label">Message</label>
@@ -153,7 +172,7 @@
             name="inquiry"
             cols="40"
             rows="5"
-            class="form-control"
+            class="form-control w-100"
             required
           ></textarea>
         </div>
@@ -191,8 +210,10 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-      <p id="submitMessage" style="display:none;">Inquiry Successfully
-        Submitted. We'll get back to you within 48 hours.</p>
+      <h4 id="successMessage" class="text-center" style="display:none">Your
+        request has been received. Please check your email for confirmation, and
+        we will get back to you ASAP.
+      </h4>
     </div>
   </div>
 </div>

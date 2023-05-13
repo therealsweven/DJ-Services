@@ -74,6 +74,7 @@ module.exports = {
         Phone: ${info.phone}
         Date: ${info.date}
         Comm: ${info.commMethod}
+        Package: ${info.package}
         Info: ${info.message}
         `,
         html: `<h2>New Inquiry Info: </h2>
@@ -82,6 +83,7 @@ module.exports = {
         <p>Phone: ${info.phone}</p>
         <p>Date: ${info.date}</p>
         <p>Comm: ${info.commMethod}</p>
+        <p>Package: ${info.package}</p>
         <p>Message: ${info.message}</p>`,
       };
       const result = transporter.sendMail(mailOptions);

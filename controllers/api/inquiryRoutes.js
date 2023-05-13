@@ -3,16 +3,14 @@ const { sendConfirmation, sendInfoToMe } = require("../../utils/helpers");
 
 const { Inquiry } = require("../../models");
 
-// const inquiry = {
-//   name: name,
-//   email: email,
-//   phone: phone,
-//   message: message,
-//   commMethod: commMethod,
-// };
-
 router.post("/", async (req, res) => {
   try {
+    if (!req.body.date) {
+      req.body.date = "none specified";
+    }
+    if (!req.body.package) {
+      req.body.package = "none specified";
+    }
     console.log(req.body);
     req.body.active = true;
     await Inquiry.create(req.body);
