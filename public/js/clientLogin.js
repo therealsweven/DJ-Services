@@ -1,7 +1,7 @@
 const loginModal = $("#loginModal");
 
 // Get the button that opens the modal
-var loginBtn = $("#clientLogin");
+var loginBtn = $(".clientLogin");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close")[0];

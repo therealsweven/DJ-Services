@@ -1,0 +1,36 @@
+{{#unless sesh.adminLoggedIn}}
+  <div id="adminLogin">
+    <form id="adminLoginForm">
+      <label for="adminEmail">Email</label>
+      <input id="adminEmail" type="email" class="form-control" />
+      <label for="adminPassword">Password</label>
+      <input id="adminPassword" type="password" class="form-control" />
+      <button id="adminLoginBtn" type="submit">Login</button>
+    </form>
+  </div>
+{{/unless}}
+{{#if sesh.adminLoggedIn}}
+  <a href="/api/admin/logout">
+    <button
+      id="adminLogoutBtn"
+      class="btn btn-outline-light btn-lg px-5"
+      type="submit"
+    >Logout</button></a>
+  <div id="adminOpsContainer">
+    <h3>Create New Client</h3>
+    <form>
+      <label for="firstNameInput">First Name</label>
+      <input id="firstNameInput" type="text" class="form-control" />
+      <label for="lastNameInput">Last Name</label>
+      <input id="lastNameInput" type="text" class="form-control" />
+      <label for="emailInput">Email</label>
+      <input id="emailInput" type="email" class="form-control" />
+      <label for="phoneInput">Phone</label>
+      <input id="phoneInput" type="tel" class="form-control" />
+      <button type="submit">Submit</button>
+    </form>
+
+    <h3>Create New Invoice</h3>
+  </div>
+{{/if}}
+<script src="/js/admin/loginLogout.js"></script>

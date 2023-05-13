@@ -75,7 +75,7 @@ footer-link {
   text-align: center;
   transition: all 0.7s ease;
   margin-left: 1%;
-  padding: 0%;
+  padding: 1%;
   height: 100%;
 }
 .logo-link {
@@ -143,9 +143,9 @@ footer-link {
 /* Modal Content/Box */
 .modal-content {
   background-color: var(--dark);
-  max-height: 85vh;
+  max-height: 80vh;
   overflow-y: auto;
-  margin: 5% auto; /* 15% from the top and centered */
+  margin: 10% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid var(--accent);
   border-radius: 5%;
@@ -262,6 +262,10 @@ footer-link {
 }
 .form-control {
   width: 60%;
+}
+
+.clientLogin:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 780px) {

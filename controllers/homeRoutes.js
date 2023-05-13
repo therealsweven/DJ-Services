@@ -1,5 +1,6 @@
 const path = require("path");
 const router = require("express").Router();
+
 // homepage load
 router.get("/", (req, res) => {
   try {
@@ -40,6 +41,17 @@ router.get("/contact", (req, res) => {
 router.get("/reviews", (req, res) => {
   try {
     res.status(200).render("reviews");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// admin
+router.get("/admin", (req, res) => {
+  try {
+    const sesh = req.session;
+    console.log(req.session.adminLoggedIn);
+    res.status(200).render("admin", { sesh });
   } catch (err) {
     res.status(500).json(err);
   }
