@@ -18,7 +18,7 @@ const displayInquiries = (inquiries) => {
                     <p>Comm: ${i.commMethod}</p>
                     <p>Message: ${i.message}</p>
                     <p>Responded to: ${i.responded}</p>
-                    <button class="deleteInquiryBtn btn">Delete Inquiry</button>
+                    <button class="deleteInquiryBtn btn text-light">Delete Inquiry</button>
                     `;
       if (!i.responded) {
         card.innerHTML +=

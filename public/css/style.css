@@ -47,7 +47,8 @@ a:focus,
 body {
   background: var(--dark);
   color: white;
-  font-family: "Philosopher", sans-serif;
+  /* font-family: "Philosopher", sans-serif;*/
+  font-family: "Forum", cursive;
   margin-top: 0px;
   margin-bottom: 0px;
   width: 100%;
@@ -111,6 +112,7 @@ footer-link {
   border-radius: 70%;
   padding: 2%;
   font-size: 2rem;
+  font-family: "Philosopher", sans-serif;
 }
 #homeCards {
   padding: 3%;
@@ -377,6 +379,36 @@ footer-link {
   cursor: pointer;
 }
 
+.invoiceCard {
+  background-color: var(--dark);
+  border: solid var(--accent) 1px;
+  border-radius: 10px;
+  margin: 1%;
+  padding: 2%;
+}
+
+#contactInfoContainer {
+  width: 25%;
+}
+#billingContainer {
+  width: 50%;
+}
+#myEventsContainer {
+  width: 25%;
+}
+
+@media screen and (max-width: 960px) {
+  #contactInfoContainer {
+    width: 33%;
+  }
+  #billingContainer {
+    width: 45%;
+  }
+  #myEventsContainer {
+    width: 22%;
+  }
+}
+
 @media screen and (max-width: 780px) {
   #mobileTag {
     display: block;
@@ -441,6 +473,18 @@ footer-link {
     width: 100%;
   }
   #createInvoiceContainer {
+    width: 100%;
+  }
+  #portalContainer {
+    flex-direction: column;
+  }
+  #contactInfoContainer {
+    width: 100%;
+  }
+  #billingContainer {
+    width: 100%;
+  }
+  #myEventsContainer {
     width: 100%;
   }
 }

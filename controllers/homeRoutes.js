@@ -5,7 +5,8 @@ const { Client } = require("../models");
 // homepage load
 router.get("/", (req, res) => {
   try {
-    res.status(200).render("homepage");
+    const sesh = req.session;
+    res.status(200).render("homepage", { sesh });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -14,7 +15,8 @@ router.get("/", (req, res) => {
 // services
 router.get("/services", (req, res) => {
   try {
-    res.status(200).render("services");
+    const sesh = req.session;
+    res.status(200).render("services", { sesh });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -23,7 +25,8 @@ router.get("/services", (req, res) => {
 // about
 router.get("/about", (req, res) => {
   try {
-    res.status(200).render("about");
+    const sesh = req.session;
+    res.status(200).render("about", { sesh });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -32,7 +35,8 @@ router.get("/about", (req, res) => {
 // contact
 router.get("/contact", (req, res) => {
   try {
-    res.status(200).render("contact");
+    const sesh = req.session;
+    res.status(200).render("contact", { sesh });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -41,7 +45,8 @@ router.get("/contact", (req, res) => {
 // contact
 router.get("/reviews", (req, res) => {
   try {
-    res.status(200).render("reviews");
+    const sesh = req.session;
+    res.status(200).render("reviews", { sesh });
   } catch (err) {
     res.status(500).json(err);
   }

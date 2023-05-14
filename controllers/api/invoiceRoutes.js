@@ -3,23 +3,21 @@ const { Invoice } = require("../../models");
 //const { sendClientPortalLogin } = require("../../utils/helpers");
 
 /* 
-URL route:    /api/client
+URL route:    /api/invoice
 */
 
-// //get client by session
-// router.get("/", async (req, res) => {
-//   try {
-//     const clientData = await Client.findAll({
-//       where: {
-//         id: req.session.currentClient,
-//       },
-//     });
-//     res.status(200).json(clientData);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json(err);
-//   }
-// });
+//get invoices by session client
+router.get("/client", async (req, res) => {
+  try {
+    const invoices = await Invoice.findAll({
+      where: { clientId: req.session.currentClient, active: true },
+    });
+    res.status(200).json(invoices);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // //get client by id
 // router.get("/:id", async (req, res) => {
@@ -61,20 +59,5 @@ router.post("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// // update client account info
-// router.put("/", async (req, res) => {
-//   console.log(req.body);
-//   try {
-//     await Client.update(req.body, {
-//       where: { id: req.session.currentClient },
-//       individualHooks: true,
-//     });
-
-//     res.status(200).json("Account Successfully Updated");
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 module.exports = router;
