@@ -1,60 +1,239 @@
-{{#if sesh.loggedIn}}
-{{/if}}
-{{> portalHeader}} 
-<div class="d-flex justify-content-between align-items-center border-bottom px-4">
+{{#if sesh.loggedIn}}{{/if}}
+<main>
+{{> portalHeader}}
+  <div
+    class="d-flex justify-content-between align-items-center border-bottom px-4"
+  >
     <h1 class="text-center">Client Portal</h1>
-    <a href="/api/client/logout"><button id="logoutBtn" class="btn text-light h-50">Logout</button></a>
-</div>
-<div class="d-flex">
-  <div id="contactInfoContainer" class="w-25 text-center p-3">
-    <h3>
-      My Contact Info:
-    </h3>
-    <div id="contactInfo" class="text-left p-3 mb-3">
-      <h4>
-        <span>
-          <b>First Name:</b>
-          <p>{{client.first}}</p>
-        </span>
-      </h4>
-      <h4>
-        <span>
-          <b>Last Name:</b>
-          <p>{{client.last}}</p>
-        </span>
-      </h4>
-      <h4>
-        <span>
-          <b>Email:</b>
-          <p>{{client.email}}</p>
-        </span>
-      </h4>
-      <h4>
-        <span>
-          <b>Phone:</b>
-          <p>{{client.phone}}</p>
-        </span>
-      </h4>
-      <h4>
-        <span>
-          <b>Mailing Address:</b>
-          <p>{{client.street}}</p>
-          <p>{{client.city}}, {{client.state}} {{client.zip}}</p>
-        </span>
-      </h4>
-    </div>
-    <button id="contactUpdateBtn" class="btn btn-lg text-light">Update Contact Info</button>
-    <button id="changePasswordBtn" class="btn btn-lg text-light">Change Password</button>
+    <a href="/logout"><button
+        id="logoutBtn"
+        class="btn text-light h-50"
+      >Logout</button></a>
   </div>
-  <div id="billingContainer" class="w-75 text-center p-3">
-    <h3>
-      Account Statement:
-    </h3>
+  <div class="d-flex">
+    <div id="contactInfoContainer" class="w-25 text-center p-3">
+      <h3>
+        My Contact Info:
+      </h3>
+      <div id="contactInfo" class="text-left p-3 mb-3">
+        <h4>
+          <span>
+            <b>First Name:</b>
+            <p>{{client.first}}</p>
+          </span>
+        </h4>
+        <h4>
+          <span>
+            <b>Last Name:</b>
+            <p>{{client.last}}</p>
+          </span>
+        </h4>
+        <h4>
+          <span>
+            <b>Email:</b>
+            <p id="clientEmail">{{client.email}}</p>
+          </span>
+        </h4>
+        <h4>
+          <span>
+            <b>Phone:</b>
+            <p id="clientPhone">{{client.phone}}</p>
+          </span>
+        </h4>
+        <h4>
+          <span>
+            <b>Mailing Address:</b>
+            <br />
+            {{#if client.street}}
 
-    <div id="statementContainer" class="text-left p-3 mb-3">
-      <h3>Total Balance Due:</h3>
+              <p id="clientStreet">{{client.street}}</p>
+              <p id="clientCSZ">{{client.city}},
+                {{client.state}}
+                {{client.zip}}</p>
+
+            {{/if}}
+            {{#unless client.street}}
+              <p> </p>
+            {{/unless}}
+          </span>
+        </h4>
+        <h4 id="contactUpdateSuccessMsg" style="display:none">Your contact info
+          has been successfully updated.</h4>
+      </div>
+
+      {{! UPDATE CONTACT FORM }}
+      <form id="updateContactForm" class="text-left form" style="display:none">
+        <input
+          id="contactEmail"
+          type="text"
+          class="form-control w-100"
+          value={{client.email}}
+        />
+        <label for="contactEmail" class="form-text">Email</label>
+        <input
+          id="contactPhone"
+          type="text"
+          class="form-control w-100"
+          value={{client.phone}}
+        />
+        <label for="contactPhone" class="form-text">Phone</label>
+        {{#unless client.street}}
+          <input
+            id="contactStreet"
+            type="text"
+            class="form-control w-100"
+            value=""
+          />
+        {{/unless}}
+        {{#if client.street}}
+          <input
+            id="contactStreet"
+            type="text"
+            class="form-control w-100"
+            value={{client.street}}
+          />
+        {{/if}}
+        <label for="contactStreet" class="form-text">Street Address</label>
+        <div class="d-flex">
+          <div class="d-flex flex-column w-50">
+            {{#unless client.city}}<input
+                id="contactCity"
+                type="text"
+                class="form-control w-100"
+                value=""
+              />
+            {{/unless}}
+            {{#if client.city}}
+              <input
+                id="contactCity"
+                type="text"
+                class="form-control w-100"
+                value={{client.city}}
+              />
+            {{/if}}
+            <label for="contactCity" class="form-text">City</label>
+          </div>
+          <div class="d-flex flex-column w-25 px-2">
+            <select
+              id="contactState"
+              name="state"
+              class="form-select form-control w-100"
+            >
+              <option value={{client.state}}>{{client.state}}</option>
+              <option value="AK">AK</option>
+              <option value="AL">AL</option>
+              <option value="AR">AR</option>
+              <option value="AZ">AZ</option>
+              <option value="CA">CA</option>
+              <option value="CO">CO</option>
+              <option value="CT">CT</option>
+              <option value="DC">DC</option>
+              <option value="DE">DE</option>
+              <option value="FL">FL</option>
+              <option value="GA">GA</option>
+              <option value="HI">HI</option>
+              <option value="IA">IA</option>
+              <option value="ID">ID</option>
+              <option value="IL">IL</option>
+              <option value="IN">IN</option>
+              <option value="KS">KS</option>
+              <option value="KY">KY</option>
+              <option value="LA">LA</option>
+              <option value="MA">MA</option>
+              <option value="MD">MD</option>
+              <option value="ME">ME</option>
+              <option value="MI">MI</option>
+              <option value="MN">MN</option>
+              <option value="MO">MO</option>
+              <option value="MS">MS</option>
+              <option value="MT">MT</option>
+              <option value="NC">NC</option>
+              <option value="ND">ND</option>
+              <option value="NE">NE</option>
+              <option value="NH">NH</option>
+              <option value="NJ">NJ</option>
+              <option value="NM">NM</option>
+              <option value="NV">NV</option>
+              <option value="NY">NY</option>
+              <option value="OH">OH</option>
+              <option value="OK">OK</option>
+              <option value="OR">OR</option>
+              <option value="PA">PA</option>
+              <option value="RI">RI</option>
+              <option value="SC">SC</option>
+              <option value="SD">SD</option>
+              <option value="TN">TN</option>
+              <option value="TX">TX</option>
+              <option value="UT">UT</option>
+              <option value="VA">VA</option>
+              <option value="VT">VT</option>
+              <option value="WA">WA</option>
+              <option value="WI">WI</option>
+              <option value="WV">WV</option>
+              <option value="WY">WY</option>
+            </select>
+            <label for="contactState" class="form-text">State</label>
+          </div>
+          <div class="d-flex flex-column w-25">
+            {{#unless client.zip}}
+              <input
+                id="contactZip"
+                type="text"
+                class="form-control w-100"
+                value=""
+              />
+            {{/unless}}
+            {{#if client.zip}}
+              <input
+                id="contactZip"
+                type="text"
+                class="form-control w-100"
+                value={{client.zip}}
+              />
+            {{/if}}
+            <label for="contactZip" class="form-text">Zip</label>
+          </div>
+        </div>
+        <div class="text-center">
+          <button id="updateContactSubmitBtn" class="btn text-light">Save And
+            Close</button></div>
+      </form>
+      <button id="contactUpdateBtn" class="btn btm-xs text-light">Update Contact
+        Info</button>
+      <button id="changePasswordBtn" class="btn text-light">Change Password</button>
+      {{! UPDATE PASSWORD FORM }}
+      <form id="updatePasswordForm" class="text-left form" style="display:none">
+        <h4>New password:</h4>
+        <input id="newPassword" type="text" class="form-control w-100" />
+        <div class="text-center">
+          <button id="updatePWSubmitBtn" class="btn">Submit</button>
+        </div>
+      </form>
+      <h5 id="passwordUpdateSuccessMsg" style="display:none">Your password has
+        been successfully updated.</h5>
     </div>
-    <button id="makePaymentBtn" class="btn btn-lg text-light">Make A Payment</button>
+    <div id="billingContainer" class="w-50 text-center p-3">
+      <h3>
+        Account Statement:
+      </h3>
 
+      <div id="statementContainer" class="text-left p-3 mb-3">
+        <h3>Total Balance Due:</h3>
+      </div>
+      <button id="makePaymentBtn" class="btn btn-lg text-light">Make A Payment</button>
+
+    </div>
+    <div id="myEventsContainer" class="w-25 text-center p-3">
+      <h3>
+        My Upcoming Events:
+      </h3>
+      <div id="eventContainer" class="text-left p-3 mb-3">
+        {{#unless events}}
+          <p>You currently do not have anything scheduled with us.</p>
+        {{/unless}}
+      </div>
+
+    </div>
   </div>
-</div>
+</main>
+<script src="js/clientPortal/dashboard.js"></script>

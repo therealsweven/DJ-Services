@@ -265,12 +265,14 @@ footer-link {
   background-color: var(--accent);
   border: solid white 1px;
   transition: ease-in-out 0.2s;
+  border-radius: 10px;
+  margin: 5px;
 }
 
 .btn:hover {
   background-color: var(--accent);
   border: solid white 1px;
-  transform: scale(1.2);
+  transform: scale(1.1);
   text-shadow: none;
 }
 .form-control {
@@ -344,6 +346,20 @@ footer-link {
   border: solid 1.5px var(--accent);
   border-radius: 20px;
 }
+
+#updateContactForm {
+  background-color: var(--light2);
+  border: solid 1.5px var(--accent);
+  border-radius: 20px;
+  padding: 10px;
+}
+#updatePasswordForm {
+  background-color: var(--light2);
+  border: solid 1.5px var(--accent);
+  border-radius: 20px;
+  padding: 10px;
+}
+
 #statementContainer {
   background-color: var(--light2);
   border: solid 1.5px var(--accent);

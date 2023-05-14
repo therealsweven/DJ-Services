@@ -60,4 +60,17 @@ router.get("/admin", async (req, res) => {
   }
 });
 
+// Client Logout
+router.get("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      //res.status(204).json("message: You have been logged out").end();
+      res.redirect("/");
+    });
+  } else {
+    res.status(404).end();
+  }
+  console.log("logged out");
+});
+
 module.exports = router;

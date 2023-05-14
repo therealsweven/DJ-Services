@@ -124,17 +124,18 @@ req.body should be:
   }
 });
 
-// Client Logout
-router.get("/logout", (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).json("message: You have been logged out").end();
-    });
-  } else {
-    res.status(404).end();
-  }
-  console.log("logged out");
-});
+// // Client Logout
+// router.get("/logout", (req, res) => {
+//   if (req.session.loggedIn) {
+//     req.session.destroy(() => {
+//         window.location.assign('/')
+//       res.status(204).json("message: You have been logged out").end();
+//     });
+//   } else {
+//     res.status(404).end();
+//   }
+//   console.log("logged out");
+// });
 
 // forgot password
 router.post("/forgotPassword", async (req, res) => {
