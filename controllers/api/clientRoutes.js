@@ -125,7 +125,7 @@ req.body should be:
 });
 
 // Client Logout
-router.post("/logout", (req, res) => {
+router.get("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).json("message: You have been logged out").end();

@@ -1,1 +1,60 @@
-<h1>Client Portal</h1>
+{{#if sesh.loggedIn}}
+{{/if}}
+{{> portalHeader}} 
+<div class="d-flex justify-content-between align-items-center border-bottom px-4">
+    <h1 class="text-center">Client Portal</h1>
+    <a href="/api/client/logout"><button id="logoutBtn" class="btn text-light h-50">Logout</button></a>
+</div>
+<div class="d-flex">
+  <div id="contactInfoContainer" class="w-25 text-center p-3">
+    <h3>
+      My Contact Info:
+    </h3>
+    <div id="contactInfo" class="text-left p-3 mb-3">
+      <h4>
+        <span>
+          <b>First Name:</b>
+          <p>{{client.first}}</p>
+        </span>
+      </h4>
+      <h4>
+        <span>
+          <b>Last Name:</b>
+          <p>{{client.last}}</p>
+        </span>
+      </h4>
+      <h4>
+        <span>
+          <b>Email:</b>
+          <p>{{client.email}}</p>
+        </span>
+      </h4>
+      <h4>
+        <span>
+          <b>Phone:</b>
+          <p>{{client.phone}}</p>
+        </span>
+      </h4>
+      <h4>
+        <span>
+          <b>Mailing Address:</b>
+          <p>{{client.street}}</p>
+          <p>{{client.city}}, {{client.state}} {{client.zip}}</p>
+        </span>
+      </h4>
+    </div>
+    <button id="contactUpdateBtn" class="btn btn-lg text-light">Update Contact Info</button>
+    <button id="changePasswordBtn" class="btn btn-lg text-light">Change Password</button>
+  </div>
+  <div id="billingContainer" class="w-75 text-center p-3">
+    <h3>
+      Account Statement:
+    </h3>
+
+    <div id="statementContainer" class="text-left p-3 mb-3">
+      <h3>Total Balance Due:</h3>
+    </div>
+    <button id="makePaymentBtn" class="btn btn-lg text-light">Make A Payment</button>
+
+  </div>
+</div>
