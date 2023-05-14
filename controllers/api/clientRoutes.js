@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const { Client } = require("../../models");
-const { sendClientPortalLogin } = require("../../utils/helpers");
+const { sendClientPortalLogin, sendTempPW } = require("../../utils/helpers");
 const { v4: uuidv4 } = require("uuid");
 
 /* 
@@ -124,19 +124,6 @@ req.body should be:
   }
 });
 
-// // Client Logout
-// router.get("/logout", (req, res) => {
-//   if (req.session.loggedIn) {
-//     req.session.destroy(() => {
-//         window.location.assign('/')
-//       res.status(204).json("message: You have been logged out").end();
-//     });
-//   } else {
-//     res.status(404).end();
-//   }
-//   console.log("logged out");
-// });
-
 // forgot password
 router.post("/forgotPassword", async (req, res) => {
   console.log(req.body);
@@ -159,7 +146,7 @@ router.post("/forgotPassword", async (req, res) => {
       { where: { id: client.id }, individualHooks: true }
     );
     //send email
-    emails.sendPWResetEmail(clientData, tempPW);
+    await sendTempPW(clientData, tempPW).catch(console.error);
 
     res.status(200).json("Password Reset Email Sent");
   } catch (err) {

@@ -112,9 +112,42 @@ module.exports = {
         <p>You can access our online portal to make digital payments and update your contact information.  Please visit www.denverdjservices.com to login using the email address this message was sent to and the temporary password provided in this email.  You may change your password once you are logged in. </p> 
         <p>Your temporary password is <b>${info.password}</b>  </p>
         <p>Please feel free to reach out by phone or email if you have any issues accessing your account.  Thanks, and have a magical day!</p>
-        </br></br>
         <p>Best wishes,</p></br>
-        <p>Denver DJ Services🎵</p>`,
+        <p>Denver DJ Services🎵</p>
+        <p>(303) 815-7012</p>`,
+      };
+      const result = transporter.sendMail(mailOptions);
+      return result;
+    } catch (err) {
+      return err;
+    }
+  },
+  sendTempPW: async (info, tempPW) => {
+    try {
+      const accessToken = await oAuth2Client.getAccessToken();
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          type: "OAuth2",
+          user: "info@denverdjservices.com",
+          clientId: process.env.CLIENT_ID,
+          clientSecret: process.env.CLIENT_SECRET,
+          refreshToken: process.env.REFRESH_TOKEN,
+          accessToken: accessToken,
+        },
+      });
+      const mailOptions = {
+        from: "Denver DJ Services 🎵<info@denverdjservices.com>",
+        to: info.email,
+        subject: "Denver DJ Services - Recover Your Account",
+        text: `Hello ${info.first},
+        Your temporary password is '${tempPW}'.  Please feel free to reach out by phone or email if you have any issues accessing your account.  Thanks, and have a magical day! Best wishes, Denver DJ Services`,
+        html: `<p>Hello ${info.first},</p>
+        <p>Your temporary password is '<b>${tempPW}</b>'. 
+          Please feel free to reach out by phone or email if you have any issues accessing your account.  Thanks, and have a magical day!</p>
+        <p>Best wishes,</p></br>
+        <p>Denver DJ Services🎵</p>
+        <p>(303) 815-7012</p>`,
       };
       const result = transporter.sendMail(mailOptions);
       return result;
