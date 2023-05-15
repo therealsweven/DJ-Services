@@ -22,7 +22,7 @@ const displayInquiries = (inquiries) => {
                     `;
       if (!i.responded) {
         card.innerHTML +=
-          '<button class="respondBtn btn">Mark Responded</button>';
+          '<button class="respondBtn btn text-light">Mark Responded</button>';
         console.log(card.innerHTML);
       }
       console.log(card);

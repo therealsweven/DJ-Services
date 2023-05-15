@@ -54,7 +54,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// update inquiry
+// delete inquiry
 router.delete("/:id", async (req, res) => {
   try {
     await Inquiry.destroy({

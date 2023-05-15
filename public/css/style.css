@@ -311,6 +311,12 @@ footer-link {
   align-items: center;
   text-align: right;
 }
+#createEventContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+}
 
 #createClientContainer form {
   display: flex;
@@ -330,16 +336,26 @@ footer-link {
   padding: 4%;
   width: 90%;
 }
+#createEventContainer form {
+  background-color: #515151;
+  border: solid var(--accent) 2px;
+  border-radius: 5%;
+  padding: 4%;
+  width: 90%;
+}
 
 #createClientSuccess {
   text-align: center;
 }
 
 #createClientContainer {
-  width: 50%;
+  width: 33%;
 }
 #createInvoiceContainer {
-  width: 50%;
+  width: 33%;
+}
+#createEventContainer {
+  width: 33%;
 }
 
 #contactInfo {
@@ -466,6 +482,9 @@ footer-link {
     width: 90%;
     margin-bottom: 2%;
   }
+  .inquiryCard {
+    width: 100%;
+  }
   #createClientAndInvoiceContainer {
     flex-direction: column;
   }
@@ -473,6 +492,9 @@ footer-link {
     width: 100%;
   }
   #createInvoiceContainer {
+    width: 100%;
+  }
+  #createEventContainer {
     width: 100%;
   }
   #portalContainer {
