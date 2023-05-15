@@ -8,7 +8,6 @@ const displayInquiries = (inquiries) => {
       card.setAttribute("id", `${i.id}`);
       card.classList.add("inquiryCard");
       card.innerHTML = `
-                    <p>ID: ${i.id}</p>
                     <p>Inquiry Date: ${i.createdAt.slice(0, 10)}</p>
                     <p>Event Date: ${i.date}</p>
                     <p>Name: ${i.name}</p>

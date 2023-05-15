@@ -4,6 +4,7 @@ $("#createEventBtn").click(async (event) => {
   const date = $("#eventDate").val();
   const description = $("#eventDescription").val();
   const location = $("#eventLocation").val();
+  const time = $("#eventTime").val();
   const notes = $("#eventNotes").val();
 
   if (clientId && date && description && location) {
@@ -14,6 +15,7 @@ $("#createEventBtn").click(async (event) => {
         date,
         description,
         location,
+        time,
         notes,
       }),
       headers: { "Content-Type": "application/json" },
@@ -25,7 +27,8 @@ $("#createEventBtn").click(async (event) => {
       $("#eventDescription").val("");
       $("#eventLocation").val("");
       $("#eventNotes").val("");
-      $("#createInvoiceSuccess").show();
+      $("#eventTime").val("");
+      $("#createEventSuccess").show();
       setTimeout(() => {
         window.location.reload();
       }, 1500);

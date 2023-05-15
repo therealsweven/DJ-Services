@@ -16,7 +16,9 @@ router.post("/", async (req, res) => {
 // get all future events
 router.get("/", async (req, res) => {
   try {
-    const events = await Event.findAll({ where: { passed: false } });
+    const events = await Event.findAll({
+      where: { clientId: req.session.currentClient, passed: false },
+    });
 
     if (events) {
       return res.status(200).json(events);

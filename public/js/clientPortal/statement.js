@@ -1,6 +1,6 @@
 const invoiceContainer = $("#statementContainer");
 
-const displayInvoices = (invoices) => {
+const displayInvoices = async (invoices) => {
   let totalBalance = 0;
   invoices.forEach((i) => {
     const card = document.createElement("div");
@@ -9,9 +9,9 @@ const displayInvoices = (invoices) => {
     totalBalance = totalBalance + invoiceTotal;
     card.classList.add("invoiceCard");
     card.classList.add("d-flex");
-    card.classList.add("mb-3");
+    card.classList.add("my-3");
     card.innerHTML = `<div class="d-flex flex-column w-50">
-                      <p>${i.createdAt.slice(0, 10)}</p>
+                      <h4>${i.createdAt.slice(0, 10)}</h4>
                       <p>Date of Event: ${i.dateOfEvent}</p>
                       <p>Description: ${i.package}</p>
                       </div>
@@ -50,6 +50,13 @@ const displayInvoices = (invoices) => {
     console.log(card);
     invoiceContainer.append(card);
     $("#totalBalance").text("$" + totalBalance);
+  });
+  let amount = $("#totalBalance").text();
+  amount = amount.slice(1, amount.length);
+  const response = await fetch("/api/client/setPaymentAmount", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ amount }),
   });
 };
 
